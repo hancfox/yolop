@@ -27,9 +27,9 @@ class YOLOP(object):
            	width = self.image.shape[0]
             	height = self.image.shape[1]
            	yolo_idmask = np.ones((width,height),np.uint8)
-            	yolo_idmask = yolo_idmask *255;
+            	yolo_idmask = yolo_idmask *255
             	yolo_scoremask = np.ones((width,height),np.float32)
-            	yolo_scoremask = yolo_scoremask *255;
+            	yolo_scoremask = yolo_scoremask *255
 		
 		###################################################################
 		## put your yolo process code here                               ##
@@ -40,8 +40,8 @@ class YOLOP(object):
 		## 2. find the area inside the bounding box, colored them with id and score
 		###################################################################
 		try:
-			self.yoloresult.rawimg = self.cvb.cv2_to_imgmsg(self.image,encoding = "mono8)
-			self.yoloresult.idmask = self.cvb.cv2_to_imgmsg(yolo_idmask,encoding = "mono8)
+			self.yoloresult.rawimg = self.cvb.cv2_to_imgmsg(self.image,encoding = "mono8")
+			self.yoloresult.idmask = self.cvb.cv2_to_imgmsg(yolo_idmask,encoding = "mono8")
 			self.yoloresult.scoremask = self.cvb.cv2_to_imgmsg(yolo_scoremask)
 		except CvBridgeError as e:
 			print(e)			
